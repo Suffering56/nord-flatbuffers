@@ -1434,6 +1434,9 @@ CheckedError Parser::ParseTable(const StructDef &struct_def, std::string *value,
             ECHECK(SkipAnyJsonValue());
           }
         } else {
+          if (opts.ignore_server_only && field->attributes.Lookup("server_only")) {
+            ECHECK(SkipAnyJsonValue());  // Ignore ServerOnly fields.
+          } else 
           if (IsIdent("null") && !IsScalar(field->value.type.base_type)) {
             ECHECK(Next());  // Ignore this field.
           } else {

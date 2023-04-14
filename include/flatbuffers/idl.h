@@ -604,6 +604,7 @@ struct IDLOptions {
   bool json_nested_legacy_flatbuffers;
   bool ts_flat_file;
   bool no_leak_private_annotations;
+  bool ignore_server_only;
 
   // Possible options for the more general generator below.
   enum Language {
@@ -710,7 +711,8 @@ struct IDLOptions {
         rust_module_root_file(false),
         lang_to_generate(0),
         set_empty_strings_to_null(true),
-        set_empty_vectors_to_null(true) {}
+        set_empty_vectors_to_null(true),
+        ignore_server_only(false) {}
 };
 
 // This encapsulates where the parser is in the current source file.
@@ -842,6 +844,8 @@ class Parser : public ParserState {
     known_attributes_["native_default"] = true;
     known_attributes_["flexbuffer"] = true;
     known_attributes_["private"] = true;
+    known_attributes_["server_only"] = true;
+    known_attributes_["server_only_root"] = true;
   }
 
   ~Parser() {

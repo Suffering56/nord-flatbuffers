@@ -224,6 +224,7 @@ const static FlatCOption options[] = {
   { "", "no-leak-private-annotation", "",
     "Prevents multiple type of annotations within a Fbs SCHEMA file."
     "Currently this is required to generate private types in Rust" },
+  { "", "ignore-server-only", "", "Skipping server only fields when converting JSON to binary" },
 };
 
 static void AppendTextWrappedString(std::stringstream &ss, std::string &text,
@@ -604,6 +605,8 @@ int FlatCompiler::Compile(int argc, const char **argv) {
       } else if (arg == "--annotate") {
         if (++argi >= argc) Error("missing path following: " + arg, true);
         annotate_schema = flatbuffers::PosixPath(argv[argi]);
+      } else if (arg == "--ignore-server-only") {
+        opts.ignore_server_only = true;
       } else {
         for (size_t i = 0; i < params_.num_generators; ++i) {
           if (arg == "--" + params_.generators[i].option.long_opt ||

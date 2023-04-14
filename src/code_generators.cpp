@@ -366,11 +366,24 @@ bool GenerateBinary(const Parser &parser, const std::string &path,
                BinaryFileName(parser, path, file_name).c_str(), data_ptr,
                parser.flex_builder_.GetSize(), true);
   }
-  return !parser.builder_.GetSize() ||
-         flatbuffers::SaveFile(
-             BinaryFileName(parser, path, file_name).c_str(),
-             reinterpret_cast<char *>(parser.builder_.GetBufferPointer()),
-             parser.builder_.GetSize(), true);
+
+  if (!parser.builder_.GetSize()) {
+    return true;
+  }
+
+  if (parser.opts.ignore_server_only) {
+    auto hasServerOnlyRoot = parser.known_attributes_.find("server_only_root")->second == false;
+    if (hasServerOnlyRoot) {
+      return true;
+    }
+  }
+
+  return flatbuffers::SaveFile(
+      BinaryFileName(parser, path, file_name).c_str(),
+      reinterpret_cast<char *>(parser.builder_.GetBufferPointer()),
+      parser.builder_.GetSize(),
+      true
+  );
 }
 
 std::string BinaryMakeRule(const Parser &parser, const std::string &path,
