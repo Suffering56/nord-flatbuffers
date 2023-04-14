@@ -21,7 +21,6 @@ build
 *.suo
 *.opendb
 *.keystore
-**/.vs/**
 **/bin/**
 !tests/rust_usage_test/bin/**
 **/gen/**
@@ -149,3 +148,5 @@ flatbuffers.pc
 **/latex/**
 # https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_BASE_DIR
 _deps/
+/enc_temp_folder/
+/cmake-build-debug/
