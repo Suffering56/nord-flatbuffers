@@ -47,8 +47,6 @@ linklint_results
 Makefile
 flatbenchmark
 flatbenchmark.exe
-flatc
-flatc.exe
 flathash
 flathash.exe
 flattests
@@ -150,3 +148,15 @@ flatbuffers.pc
 _deps/
 /enc_temp_folder/
 /cmake-build-debug/
+/.vs/nord-flatbuffers/v17/.wsuo
+/.vs/nord-flatbuffers/FileContentIndex/2a1bfa64-bf04-4202-8758-2c661ec37bf6.vsidx
+/.vs/nord-flatbuffers/FileContentIndex/606f2392-3dc1-48f5-bbac-d143794fe317.vsidx
+/.vs/nord-flatbuffers/FileContentIndex/7056e5e1-7a11-4d73-85a4-66479d885a26.vsidx
+/.vs/nord-flatbuffers/v17/Browse.VC.db
+/.vs/nord-flatbuffers/v17/Browse.VC.db-shm
+/.vs/nord-flatbuffers/v17/Browse.VC.db-wal
+/.vs/CMake Overview
+/.vs/ProjectSettings.json
+/.vs/nord-flatbuffers/FileContentIndex/read.lock
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json

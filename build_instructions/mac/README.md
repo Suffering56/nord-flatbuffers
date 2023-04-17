@@ -1,4 +1,4 @@
-# Инструкция по сборке flatc под linux
+sudo # Инструкция по сборке flatc под linux
 
 К сожалению собрать flatc под мак с винды у меня не вышло
 (хотя вроде как и такое можно https://github.com/sickcodes/Docker-OSX, но мой процессор сказал что не умеет в некоторые функции wsl). 
@@ -14,6 +14,6 @@ https://cmake.org/install/
 4) Запускаем сборку cmake `sudo /Applications/Cmake/Content/bin/cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release`
 Вообще по идее cmake должен был добавиться в path, но у нас не добавился и поэтому в команде указан полный путь к cmake.
 
-5) Далее собираем flatc с помощью команды: `make`
+5) Далее собираем flatc с помощью команды: `sudo make`
 
 6) Готово. Скомпиленный flatc будет ждать нас в корне репозитория `/path/to/flatbuffers/repo`

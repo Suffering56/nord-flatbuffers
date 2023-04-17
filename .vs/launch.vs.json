@@ -7,7 +7,7 @@
       "project": "CMakeLists.txt",
       "projectTarget": "flatc.exe",
       "name": "flatc.exe",
-      "args": [ "--binary", "--ignore-server-only", "-o", "D:\\valera", "D:\\root\\projects\\SC\\sc-schemas\\fbs\\Settings\\welcome_bots_settings.fbs", "D:\\root\\projects\\SC\\sc-configs\\welcome_bots_settings.json" ]
+      "args": [ "--binary", "--ignore-server-only", "--filename-ext", "bytes", "-o", "D:", "D:\\root\\projects\\SC\\sc-schemas\\fbs\\Settings\\welcome_bots_settings.fbs", "D:\\root\\projects\\SC\\sc-configs\\welcome_bots_settings.json" ]
     }
   ]
 }

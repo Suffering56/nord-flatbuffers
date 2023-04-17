@@ -64,10 +64,24 @@ static std::string JavaCSharpMakeRule(const bool java, const Parser &parser,
   return make_rule;
 }
 
+static std::string ResolveBinaryFileExtension(const Parser &parser) {
+    if (parser.file_extension_.length()) {
+    // возможно в гугле перепутали parser.file_extension_ и parser.opts.filename_extension
+    // но я побоялся трогать изначальную логику поэтому пусть она будет приоритетнее
+    return parser.file_extension_;
+  }
+  if (parser.opts.filename_extension.length()) {
+    // но т.к. условие выше никогда не отрабатывает (по крайней мере в известных мне случаях)
+    // то отработает это условие для параметра запуска --filename-extension
+    return parser.opts.filename_extension;
+  }
+
+  return "bin";
+}
 
 static std::string BinaryFileName(const Parser &parser, const std::string &path,
                            const std::string &file_name) {
-  auto ext = parser.file_extension_.length() ? parser.file_extension_ : "bin";
+  auto ext = ResolveBinaryFileExtension(parser);
   return path + file_name + "." + ext;
 }
 
